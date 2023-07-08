@@ -64,5 +64,11 @@ namespace Inverted.Levels
             //TODO : TRIGGER VOICE ACTING
             UIController.Instance.OnLevelFailure();
         }
+
+        public void TriggerLevelSuccess()
+        {
+            Debug.Log("[GAME MANAGER] : Triggered Level Success");
+            UIController.Instance.OnLevelSuccess();
+        }
     }
 }
