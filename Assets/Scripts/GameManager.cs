@@ -28,24 +28,24 @@ namespace Inverted.Levels
         }
         #endregion
 
-        [Header("DEBUG")]
-        [SerializeField] private bool TriggerSimulation = false;
+        //[Header("DEBUG")]
+        //[SerializeField,InspectorName("TriggerSimulation")] private bool _triggerSimulation = false;
 
-        private void Update()
-        {
-            if (TriggerSimulation) //DEBUG, TO BE DELETED
-            {
-                TriggerSimulation = false;
-                GameObject[] activableGameObjects = GameObject.FindGameObjectsWithTag("Actor");
-                foreach(GameObject gameObject in activableGameObjects)
-                {
-                    if (gameObject != null)
-                    {
-                        gameObject.GetComponent<IActorManager>().TriggerAction();
-                    }
-                }
-            }
-        }
+        //private void Update()
+        //{
+        //    if (_triggerSimulation) //DEBUG, TO BE DELETED
+        //    {
+        //        _triggerSimulation = false;
+        //        GameObject[] activableGameObjects = GameObject.FindGameObjectsWithTag("Actor");
+        //        foreach(GameObject gameObject in activableGameObjects)
+        //        {
+        //            if (gameObject != null)
+        //            {
+        //                gameObject.GetComponent<IActorManager>().TriggerAction();
+        //            }
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Function called by the loading of a level, that will trigger the init of the level (voice acting etc)
@@ -65,10 +65,29 @@ namespace Inverted.Levels
             UIController.Instance.OnLevelFailure();
         }
 
+        /// <summary>
+        /// Function called by elements of the game upon success of the level that results in the display of the "level success" UI + voice acting + changing level
+        /// </summary>
         public void TriggerLevelSuccess()
         {
             Debug.Log("[GAME MANAGER] : Triggered Level Success");
             UIController.Instance.OnLevelSuccess();
+        }
+
+        /// <summary>
+        /// Function called UI-side that will trigger the simulation if need be of the level
+        /// </summary>
+        public void TriggerSimulation()
+        {
+            Debug.Log("[GAME MANAGER] : Triggered Simulation");
+            GameObject[] activableGameObjects = GameObject.FindGameObjectsWithTag("Actor");
+            foreach (GameObject gameObject in activableGameObjects)
+            {
+                if (gameObject != null)
+                {
+                    gameObject.GetComponent<IActorManager>().TriggerAction();
+                }
+            }
         }
     }
 }

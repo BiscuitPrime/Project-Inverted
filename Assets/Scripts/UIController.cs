@@ -1,3 +1,4 @@
+using Inverted.Levels;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,7 @@ namespace Inverted.UI
 
         #region UI VARIABLES
         [SerializeField] private GameObject _endLevelUI;
+        [SerializeField] private GameObject _inGameUI;
         //[SerializeField] private GameObject _achievementUI;
         #endregion
 
@@ -65,11 +67,18 @@ namespace Inverted.UI
         {
             Debug.Log("[UI] : Restart Button pressed");
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+            _inGameUI.SetActive(true);
         }
 
         public void OnMenuButtonPressed()
         {
             Debug.Log("[UI] : Menu Button pressed");
+        }
+
+        public void OnTriggerSimulationButton()
+        {
+            _inGameUI.SetActive(false);
+            GameManager.Instance.TriggerSimulation();
         }
         #endregion
     }
