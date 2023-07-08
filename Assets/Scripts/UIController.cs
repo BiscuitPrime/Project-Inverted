@@ -28,15 +28,31 @@ namespace Inverted.UI
         #endregion
 
         #region UI VARIABLES
+        [Header("END LEVEL UI")]
         [SerializeField] private GameObject _endLevelUI;
+        [Header("IN GAME UI")]
         [SerializeField] private GameObject _inGameUI;
-        //[SerializeField] private GameObject _achievementUI;
+        [SerializeField] private GameObject _achievementPopupUI;
+        [Header("MAIN MENU UI")]
+        [SerializeField] private GameObject _mainMenuUI;
+        [SerializeField] private GameObject _quitButton;
+        [Header("ACHIEVEMENT MENU UI")]
+        [SerializeField] private GameObject _achievementMenuUI;
+        [Header("CREDITS MENU UI")]
+        [SerializeField] private GameObject _creditsMenuUI;
         #endregion
 
-        private void Start()
+        private void Start() //Should only be called at the start of the main menu, since the UI is dontdestroyonload it will allow us to have full control on what is displayed at all times
         {
             _endLevelUI.SetActive(false);
-            //_achievementUI.SetActive(false);
+            _inGameUI.SetActive(false);
+            _achievementMenuUI.SetActive(false);
+            _creditsMenuUI.SetActive(false);
+            _mainMenuUI.SetActive(true);
+            if(Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                _quitButton.SetActive(false);
+            }
         }
 
         /// <summary>
@@ -45,7 +61,7 @@ namespace Inverted.UI
         public void OnLevelFailure()
         {
             _endLevelUI.SetActive(true); //TODO : SHOULD BE A LITTLE MORE ANIMATED
-            //_achievementUI.SetActive(true);
+            //_achievementPopupUI.SetActive(true);
         }
 
         /// <summary>
@@ -61,6 +77,26 @@ namespace Inverted.UI
         public void OnStartButtonPressed()
         {
             Debug.Log("[UI] : Start Button pressed");
+        }
+
+        public void OnQuitButtonPressed()
+        {
+            Debug.Log("[UI] : Quit Button pressed");
+            Application.Quit();
+        }
+
+        public void OnAchievementButtonPressed()
+        {
+            Debug.Log("[UI] : Achievement Button pressed");
+            _mainMenuUI.SetActive(false);
+            _achievementMenuUI.SetActive(true);
+        }
+
+        public void OnCreditsButtonPressed()
+        {
+            Debug.Log("[UI] : Credits Button pressed");
+            _mainMenuUI.SetActive(false);
+            _creditsMenuUI.SetActive(true);
         }
 
         public void OnRestartButtonPressed()
