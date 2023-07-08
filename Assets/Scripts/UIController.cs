@@ -106,7 +106,7 @@ namespace Inverted.UI
             _inGameUI.SetActive(true);
         }
 
-        public void OnMenuButtonPressed()
+        public void OnReturnToMainMenuButtonPressed()
         {
             Debug.Log("[UI] : Menu Button pressed");
         }
