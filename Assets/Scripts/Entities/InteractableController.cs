@@ -9,6 +9,29 @@ namespace Inverted.Entities
     /// </summary>
     public class InteractableController : MonoBehaviour
     {
-    
+        private Vector3 _mouseOffset;
+        private float _mouseZCoordinate;
+
+        private void OnMouseDown()
+        {
+            _mouseZCoordinate = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
+            _mouseOffset = gameObject.transform.position - GetMousePosition();
+        }
+
+        /// <summary>
+        /// Function that returns the position of the object in the world dependent on the mouse
+        /// </summary>
+        /// <returns>A vector3 containing the position of the object dependent on the mouse's position on the screen</returns>
+        private Vector3 GetMousePosition()
+        {
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition.z = _mouseZCoordinate;
+            return Camera.main.ScreenToWorldPoint(mousePosition);
+        }
+
+        private void OnMouseDrag()
+        {
+            transform.position = GetMousePosition() + _mouseOffset;
+        }
     }
 }
