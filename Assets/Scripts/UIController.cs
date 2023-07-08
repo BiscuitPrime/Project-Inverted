@@ -24,6 +24,7 @@ namespace Inverted.UI
         private void Awake()
         {
             _instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         #endregion
 
@@ -72,11 +73,23 @@ namespace Inverted.UI
             _endLevelUI.SetActive(true);
         }
 
+        private void OnLevelWasLoaded()
+        {
+            _inGameUI.SetActive(true);
+        }
+
 
         #region BUTTON FUNCTIONS
-        public void OnStartButtonPressed()
+        public void OnStartButtonPressed(string nextLevelName)
         {
             Debug.Log("[UI] : Start Button pressed");
+            //load the loading screen
+            SceneManager.LoadSceneAsync(nextLevelName);
+            _endLevelUI.SetActive(false);
+            _inGameUI.SetActive(false);
+            _achievementMenuUI.SetActive(false);
+            _creditsMenuUI.SetActive(false);
+            _mainMenuUI.SetActive(false);
         }
 
         public void OnQuitButtonPressed()
@@ -103,12 +116,18 @@ namespace Inverted.UI
         {
             Debug.Log("[UI] : Restart Button pressed");
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+            _endLevelUI.SetActive(false);
             _inGameUI.SetActive(true);
         }
 
         public void OnReturnToMainMenuButtonPressed()
         {
             Debug.Log("[UI] : Menu Button pressed");
+            _endLevelUI.SetActive(false);
+            _inGameUI.SetActive(false);
+            _achievementMenuUI.SetActive(false);
+            _creditsMenuUI.SetActive(false);
+            _mainMenuUI.SetActive(true);
         }
 
         public void OnTriggerSimulationButton()

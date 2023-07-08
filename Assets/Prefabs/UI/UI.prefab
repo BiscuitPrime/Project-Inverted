@@ -1121,7 +1121,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3780050515910714228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 59.68103, y: -224, z: -584.30786}
+  m_LocalPosition: {x: 0, y: -224, z: -584.30786}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1512,7 +1512,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Lead Programmer \n\nProgrammer 1\n\nProgrammer 2\n\nLead Game Designer\n\nGame
-    Designer\n\nLead Artist\n\nArtist 1\n\nArtist 789\n\nLead Official Velociraptor"
+    Designer\n\nLead Artist\n\nArtist 1\n\nArtist 789\n\nLead Velociraptor"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2089,16 +2089,16 @@ RectTransform:
   m_GameObject: {fileID: 4748057009091782566}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.5013, y: 3.5013, z: 3.5013}
+  m_LocalScale: {x: 1.1824241, y: 3.5013, z: 3.5013}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2338241590850086460}
   m_Father: {fileID: 1657335009703119355}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -325}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 137, y: 91}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3841045795990283988
@@ -2843,13 +2843,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1683919091976201780}
         m_TargetAssemblyTypeName: Inverted.UI.UIController, Assembly-CSharp
         m_MethodName: OnStartButtonPressed
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Riddle1Scene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7656845166339097808
