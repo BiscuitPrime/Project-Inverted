@@ -28,24 +28,7 @@ namespace Inverted.Levels
         }
         #endregion
 
-        //[Header("DEBUG")]
-        //[SerializeField,InspectorName("TriggerSimulation")] private bool _triggerSimulation = false;
-
-        //private void Update()
-        //{
-        //    if (_triggerSimulation) //DEBUG, TO BE DELETED
-        //    {
-        //        _triggerSimulation = false;
-        //        GameObject[] activableGameObjects = GameObject.FindGameObjectsWithTag("Actor");
-        //        foreach(GameObject gameObject in activableGameObjects)
-        //        {
-        //            if (gameObject != null)
-        //            {
-        //                gameObject.GetComponent<IActorManager>().TriggerAction();
-        //            }
-        //        }
-        //    }
-        //}
+        private LevelDataAsset _currentLevelData;
 
         /// <summary>
         /// Function called by the loading of a level, that will trigger the init of the level (voice acting etc)
@@ -53,6 +36,11 @@ namespace Inverted.Levels
         private void OnLevelWasLoaded(int level)
         {
             Debug.Log("[GAME MANAGER] : Level was loaded");
+            if(LevelData.Instance == null)
+            {
+                Debug.LogError("[GAME MANAGER] : Failed to find Level Data singleton in the scene");
+            }
+            _currentLevelData = LevelData.Instance.LevelDataAsset;
         }
 
         /// <summary>
@@ -62,7 +50,18 @@ namespace Inverted.Levels
         {
             Debug.Log("[GAME MANAGER] : Triggered Level Failure");
             //TODO : TRIGGER VOICE ACTING
-            UIController.Instance.OnLevelFailure();
+            if (!PlayerPrefs.HasKey(_currentLevelData.LevelID)) //if it's the first time that the player lost, we give achievement, otherwise we don't
+            {
+                Debug.Log("[GAME MANAGER] : CALLING ACHIEVEMENT");
+                PlayerPrefs.SetInt(_currentLevelData.LevelID, 1);
+                PlayerPrefs.Save();
+                UIController.Instance.OnLevelFailure(_currentLevelData.AchievementRessource);
+            }
+            else
+            {
+                Debug.Log("[GAME MANAGER] : NOT CALLING ACHIEVEMENT");
+                UIController.Instance.OnLevelFailure();
+            }
         }
 
         /// <summary>

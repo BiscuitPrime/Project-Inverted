@@ -27,7 +27,6 @@ namespace Inverted.Actors
         /// </summary>
         public void TriggerAction()
         {
-            Debug.Log("GOOD GUY : Triggering action");
             _rb = GetComponent<Rigidbody>();
             _rb.isKinematic = true;
             _rb.useGravity = false;

@@ -1,8 +1,10 @@
+using Inverted.Achievements;
 using Inverted.Levels;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace Inverted.UI
 {
@@ -43,6 +45,8 @@ namespace Inverted.UI
         [SerializeField] private GameObject _creditsMenuUI;
         #endregion
 
+        private PopupController _popupController;
+
         private void Start() //Should only be called at the start of the main menu, since the UI is dontdestroyonload it will allow us to have full control on what is displayed at all times
         {
             _endLevelUI.SetActive(false);
@@ -50,6 +54,7 @@ namespace Inverted.UI
             _achievementMenuUI.SetActive(false);
             _creditsMenuUI.SetActive(false);
             _mainMenuUI.SetActive(true);
+            _popupController = _achievementPopupUI.GetComponent<PopupController>();
             if(Application.platform == RuntimePlatform.WebGLPlayer)
             {
                 _quitButton.SetActive(false);
@@ -59,10 +64,18 @@ namespace Inverted.UI
         /// <summary>
         /// Function called upon the failure of the level, displays the end level screen along the achievements
         /// </summary>
-        public void OnLevelFailure()
+        public void OnLevelFailure(AchievementRessource achievementRessource=null)
         {
             _endLevelUI.SetActive(true); //TODO : SHOULD BE A LITTLE MORE ANIMATED
-            //_achievementPopupUI.SetActive(true);
+            _achievementPopupUI.SetActive(true);
+            if (achievementRessource != null)
+            {
+                _popupController.TriggerPopup(achievementRessource);
+            }
+            else
+            {
+                _achievementPopupUI.SetActive(false);
+            }
         }
 
         /// <summary>
@@ -71,6 +84,7 @@ namespace Inverted.UI
         public void OnLevelSuccess()
         {
             _endLevelUI.SetActive(true);
+            _achievementPopupUI.SetActive(false);
         }
 
         private void OnLevelWasLoaded()

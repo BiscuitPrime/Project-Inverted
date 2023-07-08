@@ -10,7 +10,6 @@ namespace Inverted.Actors
 
         public void TriggerAction()
         {
-            Debug.Log("BAD GUY : Triggering action");
             _behaviourEnabled = true;
         }
     }

@@ -12,7 +12,6 @@ namespace Inverted.Entities
     {
         private void OnTriggerEnter(Collider other)
         {
-            Debug.Log("GUN : TRIGGER ENTERED");
             FireGun();
             other.gameObject.GetComponent<GoodGuyController>().TriggerDeath();
         }
