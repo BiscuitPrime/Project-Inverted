@@ -8,6 +8,11 @@ using UnityEngine.SocialPlatforms.Impl;
 
 namespace Inverted.UI
 {
+    public struct LevelAssetDataAggregator
+    {
+        public LevelDataAsset LevelDataAsset;
+        public GameObject UIAchivementAsset;
+    }
     public class UIController : MonoBehaviour
     {
         #region SINGLETON DESIGN PATTERN
@@ -41,11 +46,24 @@ namespace Inverted.UI
         [SerializeField] private GameObject _quitButton;
         [Header("ACHIEVEMENT MENU UI")]
         [SerializeField] private GameObject _achievementMenuUI;
+        [SerializeField] private GameObject _achAsset1;
+        [SerializeField] private LevelDataAsset _level1;
+        [SerializeField] private GameObject _achAsset2;
+        [SerializeField] private LevelDataAsset _level2;
+        [SerializeField] private GameObject _achAsset3;
+        [SerializeField] private LevelDataAsset _level3;
+        [SerializeField] private GameObject _achAsset4;
+        [SerializeField] private LevelDataAsset _level4;
+        [SerializeField] private GameObject _achAsset5;
+        [SerializeField] private LevelDataAsset _level5;
+        [SerializeField] private GameObject _achAsset6;
+        [SerializeField] private LevelDataAsset _level6;
         [Header("CREDITS MENU UI")]
         [SerializeField] private GameObject _creditsMenuUI;
         #endregion
 
         private PopupController _popupController;
+        private Dictionary<string, LevelAssetDataAggregator> _levelAssets;
 
         private void Start() //Should only be called at the start of the main menu, since the UI is dontdestroyonload it will allow us to have full control on what is displayed at all times
         {
@@ -59,6 +77,16 @@ namespace Inverted.UI
             {
                 _quitButton.SetActive(false);
             }
+            _levelAssets = new Dictionary<string, LevelAssetDataAggregator>
+            {
+                { _level1.LevelID, new LevelAssetDataAggregator(){ LevelDataAsset=_level1,UIAchivementAsset=_achAsset1 } },
+                { _level2.LevelID, new LevelAssetDataAggregator(){ LevelDataAsset=_level2,UIAchivementAsset=_achAsset2 } },
+                { _level3.LevelID, new LevelAssetDataAggregator(){ LevelDataAsset=_level3,UIAchivementAsset=_achAsset3 } },
+                { _level4.LevelID, new LevelAssetDataAggregator(){ LevelDataAsset=_level4,UIAchivementAsset=_achAsset4 } },
+                { _level5.LevelID, new LevelAssetDataAggregator(){ LevelDataAsset=_level5,UIAchivementAsset=_achAsset5 } },
+                { _level6.LevelID, new LevelAssetDataAggregator(){ LevelDataAsset=_level6,UIAchivementAsset=_achAsset6 } }
+            };
+            HideAllAchievements();
         }
 
         /// <summary>
@@ -92,6 +120,13 @@ namespace Inverted.UI
             _inGameUI.SetActive(true);
         }
 
+        private void HideAllAchievements()
+        {
+            foreach (var levelAssetData in _levelAssets.Keys)
+            {
+                _levelAssets[levelAssetData].UIAchivementAsset.SetActive(false);
+            }
+        }
 
         #region BUTTON FUNCTIONS
         public void OnStartButtonPressed(string nextLevelName)
@@ -101,6 +136,7 @@ namespace Inverted.UI
             SceneManager.LoadSceneAsync(nextLevelName);
             _endLevelUI.SetActive(false);
             _inGameUI.SetActive(false);
+            HideAllAchievements();
             _achievementMenuUI.SetActive(false);
             _creditsMenuUI.SetActive(false);
             _mainMenuUI.SetActive(false);
@@ -117,6 +153,14 @@ namespace Inverted.UI
             Debug.Log("[UI] : Achievement Button pressed");
             _mainMenuUI.SetActive(false);
             _achievementMenuUI.SetActive(true);
+            foreach(var levelAssetData in _levelAssets.Keys)
+            {
+                if (PlayerPrefs.HasKey(_levelAssets[levelAssetData].LevelDataAsset.LevelID))
+                {
+                    _levelAssets[levelAssetData].UIAchivementAsset.SetActive(true);
+                    _levelAssets[levelAssetData].UIAchivementAsset.GetComponent<PopupController>().TriggerAchievementDisplay(_levelAssets[levelAssetData].LevelDataAsset.AchievementRessource);
+                }
+            }
         }
 
         public void OnCreditsButtonPressed()
@@ -131,6 +175,7 @@ namespace Inverted.UI
             Debug.Log("[UI] : Restart Button pressed");
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
             _endLevelUI.SetActive(false);
+            HideAllAchievements();
             _inGameUI.SetActive(true);
         }
 
@@ -141,6 +186,7 @@ namespace Inverted.UI
             _inGameUI.SetActive(false);
             _achievementMenuUI.SetActive(false);
             _creditsMenuUI.SetActive(false);
+            HideAllAchievements();
             _mainMenuUI.SetActive(true);
         }
 

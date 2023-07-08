@@ -22,5 +22,13 @@ namespace Inverted.Achievements
             _achTitle.text = achievementRessource.AchievementTitle;
             _achFlavour.text = achievementRessource.AchievementFlavour;
         }
+
+        public void TriggerAchievementDisplay(AchievementRessource achievementRessource)
+        {
+            Assert.IsNotNull(achievementRessource);
+            _achIcon.sprite = achievementRessource.AchievementIcon;
+            _achTitle.text = achievementRessource.AchievementTitle;
+            _achFlavour.text = achievementRessource.AchievementFlavour;
+        }
     }
 }
