@@ -1,4 +1,5 @@
 using Inverted.Actors;
+using Inverted.Audio;
 using Inverted.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +30,7 @@ namespace Inverted.Levels
         #endregion
 
         private LevelDataAsset _currentLevelData;
+        [SerializeField] private VoicesDataAsset _voicesDataAssets;
 
         /// <summary>
         /// Function called by the loading of a level, that will trigger the init of the level (voice acting etc)
@@ -49,7 +51,8 @@ namespace Inverted.Levels
         public void TriggerLevelFailure()
         {
             Debug.Log("[GAME MANAGER] : Triggered Level Failure");
-            //TODO : TRIGGER VOICE ACTING
+            //Triggering voice acting :
+            VoicesController.Instance.TriggerVoiceLine(SelectRandomVoiceLine());
             if (!PlayerPrefs.HasKey(_currentLevelData.LevelID)) //if it's the first time that the player lost, we give achievement, otherwise we don't
             {
                 Debug.Log("[GAME MANAGER] : CALLING ACHIEVEMENT");
@@ -87,6 +90,16 @@ namespace Inverted.Levels
                     gameObject.GetComponent<IActorManager>().TriggerAction();
                 }
             }
+        }
+
+        /// <summary>
+        /// Function that will return a random voice line amongst the random voice lines pool
+        /// </summary>
+        /// <returns>An audioclip</returns>
+        private AudioClip SelectRandomVoiceLine()
+        {
+            AudioClip audioClip = _voicesDataAssets.AudioClips[Random.Range(0,_voicesDataAssets.AudioClips.Length)];
+            return audioClip;
         }
     }
 }

@@ -17,9 +17,10 @@ namespace Inverted.Actors
         {
             EventHandler.Instance.GameEvent.AddListener(OnGameEventChangeWinConditionReceived);
         }
+
         private void OnDestroy()
         {
-            EventHandler.Instance.GameEvent.RemoveListener(OnGameEventChangeWinConditionReceived);
+            EventHandler.Instance.GameEvent?.RemoveListener(OnGameEventChangeWinConditionReceived);
         }
 
         /// <summary>

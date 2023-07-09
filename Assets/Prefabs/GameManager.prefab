@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe84f2df00c5e544a921b221156ae8dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerSimulation: 0
+  _voicesDataAssets: {fileID: 11400000, guid: b5cb77c8cfc2817499ab515b553548ed, type: 2}
 --- !u!114 &9197963040301266962
 MonoBehaviour:
   m_ObjectHideFlags: 0

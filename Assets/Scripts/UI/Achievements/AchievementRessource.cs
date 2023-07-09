@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Inverted.Achievements
 {
     [CreateAssetMenu(fileName ="Achivement",menuName ="ScriptableObjects/Achievement")]
-    public class AchievementRessource : ScriptableObject
+    public class AchievementRessource : ScriptableObject //TODO : ADD A READONLY VERSION
     {
         [field:SerializeField] public int AchievementID { get; private set; }
         [field: SerializeField, InspectorName("Achievement Icon")] public Sprite AchievementIcon { get; private set; }

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf61682e3a70b34ab9f740bcff864de, type: 3}
+  m_Name: VoicesDataAsset
+  m_EditorClassIdentifier: 
+  <_audioClips>k__BackingField:
+  - {fileID: 8300000, guid: 5bbfc409328776f4ebf71b4844234120, type: 3}
+  - {fileID: 8300000, guid: 0894f2817d60d1e4d8bfc048fea14315, type: 3}
+  - {fileID: 8300000, guid: dffbc6d95d27229458474a1fdbac3d94, type: 3}
+  - {fileID: 8300000, guid: 5e810b1eef2ce7946a89ec10a66d130b, type: 3}

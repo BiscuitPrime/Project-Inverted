@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Inverted.Debugging
 {
+    /// <summary>
+    /// Debugger of the game, to be expanded upon
+    /// </summary>
     public class Debugger : MonoBehaviour
     {
         [Header("DEBUG BUTTONS")]
