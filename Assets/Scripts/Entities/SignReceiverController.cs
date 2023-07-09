@@ -10,9 +10,9 @@ namespace Inverted.Entities
     /// </summary>
     public class SignReceiverController : MonoBehaviour
     {
-        [SerializeField,InspectorName("Target")] private GameObject _target;
+        [SerializeField,InspectorName("Target")] protected GameObject _target;
 
-        private void OnTriggerEnter(Collider other)
+        protected virtual void OnTriggerEnter(Collider other)
         {
             Debug.Log("[SIGN RECEIVER] : Trigger entered");
             if (other.gameObject == _target) //if it's indeed the sign that enters its range, we update the win condition to success
@@ -22,7 +22,7 @@ namespace Inverted.Entities
         }
 
         //We want to avoid the situation of the player moving correctly the sign, then moving it again and still winning due to the non-update 
-        private void OnTriggerExit(Collider other)
+        protected virtual void OnTriggerExit(Collider other)
         {
             Debug.Log("[SIGN RECEIVER] : Trigger exited");
             if (other.gameObject == _target) //if the sign leaves the area, we update the condition to failure

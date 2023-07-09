@@ -8,9 +8,20 @@ namespace Inverted.Events
     public enum GameEventType
     {
         ChargeWinConditionSuccess, //requests a change in the win condition that will lead to success
-        ChargeWinConditionFailure //requests a change in the win condition that will lead to failure
+        ChargeWinConditionFailure, //requests a change in the win condition that will lead to failure
+    }
+    public enum PartialVictoryEventType
+    {
+        PartialWinConditionSuccess,
+        PartialWinConditionFailure,
+    }
+    public struct PartialVictoryEventArgument
+    {
+        public PartialVictoryEventType Type;
+        public GameObject Sender;
     }
     public class GameEvent : UnityEvent<GameEventType> { }
+    public class PartialVictoryEvent : UnityEvent<PartialVictoryEventArgument> { }
 
     public class EventHandler : MonoBehaviour
     {
@@ -32,9 +43,11 @@ namespace Inverted.Events
             _instance = this;
             DontDestroyOnLoad(this);
             GameEvent = new GameEvent();
+            PartialVictoryEvent = new PartialVictoryEvent();
         }
         #endregion
 
         public GameEvent GameEvent;
+        public PartialVictoryEvent PartialVictoryEvent;
     }
 }
