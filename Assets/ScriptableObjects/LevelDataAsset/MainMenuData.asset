@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelID: MainMenuScene
   NextLevelID: Riddle1Scene
+  LevelIsSimulated: 0
   <AchievementRessource>k__BackingField: {fileID: 0}
