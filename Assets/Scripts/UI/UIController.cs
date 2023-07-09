@@ -119,9 +119,12 @@ namespace Inverted.UI
             _achievementPopupUI.SetActive(false);
         }
 
-        private void OnLevelWasLoaded()
+        private void OnLevelWasLoaded(int level)
         {
-            _inGameUI.SetActive(true);
+            if(LevelData.Instance.LevelDataAsset.LevelIsSimulated)
+            {
+                _inGameUI.SetActive(true);
+            }
         }
 
         private void HideAllAchievements()
@@ -137,7 +140,6 @@ namespace Inverted.UI
         {
             Debug.Log("[UI] : Start Button pressed");
             //load the loading screen
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
             _endLevelUI.SetActive(false);
             _endLevelSuccessUI.SetActive(false);
             _inGameUI.SetActive(false);
@@ -145,6 +147,7 @@ namespace Inverted.UI
             _achievementMenuUI.SetActive(false);
             _creditsMenuUI.SetActive(false);
             _mainMenuUI.SetActive(false);
+            SceneManager.LoadSceneAsync(LevelData.Instance.LevelDataAsset.NextLevelID);
         }
 
         public void OnQuitButtonPressed()
@@ -178,17 +181,16 @@ namespace Inverted.UI
         public void OnRestartButtonPressed()
         {
             Debug.Log("[UI] : Restart Button pressed");
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
             _endLevelUI.SetActive(false);
             _endLevelSuccessUI.SetActive(false);
             HideAllAchievements();
             _inGameUI.SetActive(true);
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
         }
 
         public void OnReturnToMainMenuButtonPressed()
         {
             Debug.Log("[UI] : Menu Button pressed");
-            SceneManager.LoadSceneAsync("FakeMainMenuScene");
             _endLevelUI.SetActive(false);
             _endLevelSuccessUI.SetActive(false);
             _inGameUI.SetActive(false);
@@ -196,6 +198,7 @@ namespace Inverted.UI
             _creditsMenuUI.SetActive(false);
             HideAllAchievements();
             _mainMenuUI.SetActive(true);
+            SceneManager.LoadSceneAsync("FakeMainMenuScene");
         }
 
         public void OnTriggerSimulationButton()

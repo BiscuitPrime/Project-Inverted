@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2e80df96f20d0c4fb2c4139798469c4, type: 3}
-  m_Name: RiddleTwoData
+  m_Name: MainMenuData
   m_EditorClassIdentifier: 
-  LevelID: RiddleTwo
-  NextLevelID: FakeMainMenuScene
-  <AchievementRessource>k__BackingField: {fileID: 11400000, guid: fb7b0609ddfd4ba4b843f747ea922364, type: 2}
+  LevelID: MainMenuScene
+  NextLevelID: Riddle1Scene
+  <AchievementRessource>k__BackingField: {fileID: 0}

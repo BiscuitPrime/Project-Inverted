@@ -12,6 +12,8 @@ namespace Inverted.Levels
     public class LevelDataAsset : ScriptableObject
     {
         [SerializeField] public string LevelID;
+        [SerializeField] public string NextLevelID;
+        [SerializeField] public bool LevelIsSimulated;
         [field: SerializeField] public AchievementRessource AchievementRessource { get; private set; }
     }
 }

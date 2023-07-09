@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: RiddleOneData
   m_EditorClassIdentifier: 
   LevelID: RiddleOne
+  NextLevelID: Riddle2Scene
   <AchievementRessource>k__BackingField: {fileID: 11400000, guid: 58f37c6ead1ed3a42a527660df20b5b2, type: 2}
