@@ -9,8 +9,23 @@ namespace Inverted.Entities
     /// </summary>
     public class InteractableController : MonoBehaviour
     {
+        private Vector3 _startingPosition;
         private Vector3 _mouseOffset;
         private float _mouseZCoordinate;
+
+        private void Awake()
+        {
+            _startingPosition = transform.position;
+        }
+
+        /// <summary>
+        /// Function that will reset the object to its starting spawn (alongside its speed)
+        /// </summary>
+        public void ResetSpawn()
+        {
+            transform.position = _startingPosition;
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
 
         private void OnMouseDown()
         {
