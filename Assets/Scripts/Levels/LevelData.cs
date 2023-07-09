@@ -27,7 +27,6 @@ namespace Inverted.Levels
         private void Awake()
         {
             _instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         #endregion
 

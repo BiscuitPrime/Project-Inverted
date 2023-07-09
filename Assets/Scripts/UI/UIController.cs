@@ -97,6 +97,7 @@ namespace Inverted.UI
         public void OnLevelFailure(AchievementRessource achievementRessource=null)
         {
             _endLevelUI.SetActive(true); //TODO : SHOULD BE A LITTLE MORE ANIMATED
+            _inGameUI.SetActive(false);
             _achievementPopupUI.SetActive(true);
             if (achievementRessource != null)
             {
@@ -114,6 +115,7 @@ namespace Inverted.UI
         public void OnLevelSuccess()
         {
             _endLevelSuccessUI.SetActive(true);
+            _inGameUI.SetActive(false);
             _achievementPopupUI.SetActive(false);
         }
 
@@ -186,6 +188,7 @@ namespace Inverted.UI
         public void OnReturnToMainMenuButtonPressed()
         {
             Debug.Log("[UI] : Menu Button pressed");
+            SceneManager.LoadSceneAsync("FakeMainMenuScene");
             _endLevelUI.SetActive(false);
             _endLevelSuccessUI.SetActive(false);
             _inGameUI.SetActive(false);

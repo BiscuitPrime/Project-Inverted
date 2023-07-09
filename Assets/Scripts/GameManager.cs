@@ -45,7 +45,10 @@ namespace Inverted.Levels
             }
             _currentLevelData = LevelData.Instance.LevelDataAsset;
 
-            VoicesController.Instance.TriggerVoiceLine(_voicesDataAssets.StartingAudioClips[level]);
+            if (_voicesDataAssets.StartingAudioClips.ContainsKey(level))
+            {
+                VoicesController.Instance.TriggerVoiceLine(_voicesDataAssets.StartingAudioClips[level]);
+            }
         }
 
         /// <summary>
