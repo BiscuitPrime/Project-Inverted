@@ -38,6 +38,7 @@ namespace Inverted.UI
         #region UI VARIABLES
         [Header("END LEVEL UI")]
         [SerializeField] private GameObject _endLevelUI;
+        [SerializeField] private GameObject _endLevelSuccessUI;
         [Header("IN GAME UI")]
         [SerializeField] private GameObject _inGameUI;
         [SerializeField] private GameObject _achievementPopupUI;
@@ -68,6 +69,7 @@ namespace Inverted.UI
         private void Start() //Should only be called at the start of the main menu, since the UI is dontdestroyonload it will allow us to have full control on what is displayed at all times
         {
             _endLevelUI.SetActive(false);
+            _endLevelSuccessUI.SetActive(false);
             _inGameUI.SetActive(false);
             _achievementMenuUI.SetActive(false);
             _creditsMenuUI.SetActive(false);
@@ -111,7 +113,7 @@ namespace Inverted.UI
         /// </summary>
         public void OnLevelSuccess()
         {
-            _endLevelUI.SetActive(true);
+            _endLevelSuccessUI.SetActive(true);
             _achievementPopupUI.SetActive(false);
         }
 
@@ -129,12 +131,13 @@ namespace Inverted.UI
         }
 
         #region BUTTON FUNCTIONS
-        public void OnStartButtonPressed(string nextLevelName)
+        public void OnStartButtonPressed()
         {
             Debug.Log("[UI] : Start Button pressed");
             //load the loading screen
-            SceneManager.LoadSceneAsync(nextLevelName);
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
             _endLevelUI.SetActive(false);
+            _endLevelSuccessUI.SetActive(false);
             _inGameUI.SetActive(false);
             HideAllAchievements();
             _achievementMenuUI.SetActive(false);
@@ -175,6 +178,7 @@ namespace Inverted.UI
             Debug.Log("[UI] : Restart Button pressed");
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
             _endLevelUI.SetActive(false);
+            _endLevelSuccessUI.SetActive(false);
             HideAllAchievements();
             _inGameUI.SetActive(true);
         }
@@ -183,6 +187,7 @@ namespace Inverted.UI
         {
             Debug.Log("[UI] : Menu Button pressed");
             _endLevelUI.SetActive(false);
+            _endLevelSuccessUI.SetActive(false);
             _inGameUI.SetActive(false);
             _achievementMenuUI.SetActive(false);
             _creditsMenuUI.SetActive(false);

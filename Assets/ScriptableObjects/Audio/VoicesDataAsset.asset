@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcf61682e3a70b34ab9f740bcff864de, type: 3}
   m_Name: VoicesDataAsset
   m_EditorClassIdentifier: 
-  <_audioClips>k__BackingField:
-  - {fileID: 8300000, guid: 0894f2817d60d1e4d8bfc048fea14315, type: 3}
+  <_startingAudioClips>k__BackingField:
+  - LevelID: 0
+    AudioClip: {fileID: 8300000, guid: 5bbfc409328776f4ebf71b4844234120, type: 3}
+  - LevelID: 1
+    AudioClip: {fileID: 8300000, guid: 5e810b1eef2ce7946a89ec10a66d130b, type: 3}
+  - LevelID: 2
+    AudioClip: {fileID: 8300000, guid: dffbc6d95d27229458474a1fdbac3d94, type: 3}
+  <_randomEndingAudioClips>k__BackingField:
   - {fileID: 8300000, guid: dffbc6d95d27229458474a1fdbac3d94, type: 3}
-  - {fileID: 8300000, guid: 5e810b1eef2ce7946a89ec10a66d130b, type: 3}
-  <_tutorialClip>k__BackingField: {fileID: 8300000, guid: 5bbfc409328776f4ebf71b4844234120, type: 3}
+  - {fileID: 8300000, guid: 0894f2817d60d1e4d8bfc048fea14315, type: 3}

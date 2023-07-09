@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Riddle1Scene.unity
     guid: b8cda3b7ee5ed8a40aa614ba6baa845b
+  - enabled: 1
+    path: Assets/Scenes/Riddle2Scene.unity
+    guid: a9619509fcabff345bfa9a2e65d10e30
   - enabled: 0
     path: Assets/Scenes/devScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
