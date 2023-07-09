@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FakeMainMenuScene.unity
     guid: f7c2e6325fdceba41aee6ce4df584be8
+  - enabled: 1
+    path: Assets/Scenes/EndScreen.unity
+    guid: 2b1ee93218315af43a16380e7d0f3031
   - enabled: 0
     path: Assets/Scenes/devScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab

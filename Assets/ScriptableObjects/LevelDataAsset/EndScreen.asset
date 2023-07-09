@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2e80df96f20d0c4fb2c4139798469c4, type: 3}
-  m_Name: RiddleThreeData
+  m_Name: EndScreen
   m_EditorClassIdentifier: 
-  LevelID: RiddleThree
-  NextLevelID: EndScreen
-  LevelIsSimulated: 1
-  <AchievementRessource>k__BackingField: {fileID: 11400000, guid: e4250bb70c2f8564085ffe97f9a2c89f, type: 2}
+  LevelID: EndScreen
+  NextLevelID: FakeMainMenuScene
+  LevelIsSimulated: 0
+  <AchievementRessource>k__BackingField: {fileID: 0}

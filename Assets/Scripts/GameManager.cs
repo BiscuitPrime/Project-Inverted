@@ -98,6 +98,11 @@ namespace Inverted.Levels
             }
         }
 
+        public void TriggerEnding()
+        {
+            UIController.Instance.TriggerEnding();
+        }
+
         /// <summary>
         /// Function that will return a random voice line amongst the random voice lines pool
         /// </summary>

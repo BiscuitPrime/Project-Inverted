@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7229363222164587518}
   - component: {fileID: 3103384187498789998}
   - component: {fileID: 3725161711605444360}
+  - component: {fileID: 7416068071598524351}
   m_Layer: 7
   m_Name: GoodGuy
   m_TagString: Actor
@@ -110,7 +111,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0894f2817d60d1e4d8bfc048fea14315, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 39066022eb8e90941bacca2f74517e44, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -196,6 +197,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7416068071598524351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1041889402556273838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fb2d65f79915a54dba206aa0f08f078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1041889402986121278
 PrefabInstance:
   m_ObjectHideFlags: 0

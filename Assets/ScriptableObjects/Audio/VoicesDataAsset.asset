@@ -18,7 +18,15 @@ MonoBehaviour:
   - LevelID: 1
     AudioClip: {fileID: 8300000, guid: 5e810b1eef2ce7946a89ec10a66d130b, type: 3}
   - LevelID: 2
-    AudioClip: {fileID: 8300000, guid: dffbc6d95d27229458474a1fdbac3d94, type: 3}
+    AudioClip: {fileID: 8300000, guid: d9bffb06ac0beba4591cb543ccad3806, type: 3}
+  - LevelID: 3
+    AudioClip: {fileID: 8300000, guid: 4a74106fe0a62144e9a81ecf3caec681, type: 3}
   <_randomEndingAudioClips>k__BackingField:
   - {fileID: 8300000, guid: dffbc6d95d27229458474a1fdbac3d94, type: 3}
+  - {fileID: 8300000, guid: 6f5d69a47a3bb404d9edbaa2c335c8f0, type: 3}
+  - {fileID: 8300000, guid: 2c3f7cee796f09047a265ad79f7767dd, type: 3}
+  - {fileID: 8300000, guid: 6bb502a6651b2f546af95d96a8cfb252, type: 3}
+  - {fileID: 8300000, guid: 304df6742b3915d41a7f7cd497e6d570, type: 3}
   - {fileID: 8300000, guid: 0894f2817d60d1e4d8bfc048fea14315, type: 3}
+  - {fileID: 8300000, guid: 97c62403b433a7944ba5f68f27b6c671, type: 3}
+  - {fileID: 8300000, guid: 4dc27ce32f9e6b447a00c738e6ddadff, type: 3}

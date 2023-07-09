@@ -121,6 +121,10 @@ namespace Inverted.UI
 
         private void OnLevelWasLoaded(int level)
         {
+            if(level == 5) //if endscreen, only display menu
+            {
+                _mainMenuUI.SetActive(true);
+            }
             if(LevelData.Instance.LevelDataAsset.LevelIsSimulated)
             {
                 _inGameUI.SetActive(true);
@@ -133,6 +137,11 @@ namespace Inverted.UI
             {
                 _levelAssets[levelAssetData].UIAchivementAsset.SetActive(false);
             }
+        }
+
+        public void TriggerEnding()
+        {
+            OnReturnToMainMenuButtonPressed();
         }
 
         #region BUTTON FUNCTIONS
