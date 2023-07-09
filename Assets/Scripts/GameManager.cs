@@ -25,6 +25,7 @@ namespace Inverted.Levels
         private void Awake()
         {
             _instance = this;
+            _voicesDataAssets.SetUpDictionnary();
             DontDestroyOnLoad(this);
         }
         #endregion
@@ -43,6 +44,8 @@ namespace Inverted.Levels
                 Debug.LogError("[GAME MANAGER] : Failed to find Level Data singleton in the scene");
             }
             _currentLevelData = LevelData.Instance.LevelDataAsset;
+
+            VoicesController.Instance.TriggerVoiceLine(_voicesDataAssets.StartingAudioClips[level]);
         }
 
         /// <summary>
@@ -98,7 +101,7 @@ namespace Inverted.Levels
         /// <returns>An audioclip</returns>
         private AudioClip SelectRandomVoiceLine()
         {
-            AudioClip audioClip = _voicesDataAssets.AudioClips[Random.Range(0,_voicesDataAssets.AudioClips.Length)];
+            AudioClip audioClip = _voicesDataAssets.RandomEndingAudioClips[Random.Range(0,_voicesDataAssets.RandomEndingAudioClips.Length)];
             return audioClip;
         }
     }
