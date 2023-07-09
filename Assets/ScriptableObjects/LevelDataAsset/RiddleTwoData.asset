@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: RiddleTwoData
   m_EditorClassIdentifier: 
   LevelID: RiddleTwo
-  NextLevelID: FakeMainMenuScene
+  NextLevelID: Riddle3Scene
+  LevelIsSimulated: 0
   <AchievementRessource>k__BackingField: {fileID: 11400000, guid: fb7b0609ddfd4ba4b843f747ea922364, type: 2}
